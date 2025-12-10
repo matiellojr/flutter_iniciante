@@ -1,5 +1,7 @@
+import 'package:desenvolvimento_flutter_iniciante/extensions/extensions.dart';
 import 'package:desenvolvimento_flutter_iniciante/models/pessoa.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/custom_tile.dart';
+import 'package:desenvolvimento_flutter_iniciante/widgets/pessoa_dialog.dart';
 import 'package:flutter/material.dart';
 
 class CustomPersonTile extends StatelessWidget {
@@ -12,14 +14,22 @@ class CustomPersonTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTile(
+      onClick: () {
+        showDialog(
+          context: context, 
+          builder: (context) {
+            return PessoaDialog(pessoa: pessoa);
+          }
+        );
+      },
       color: Colors.blueAccent,
       leading: Text("Id: ${pessoa.id}"),
       title: Text(
         pessoa.nome, 
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
       ),
-      subTitle: Text("Peso: ${pessoa.peso.toStringAsFixed(2)} kg"),
-      trailing: Text("Altura: ${pessoa.altura} cm"),
+      subTitle: Text("Peso: ${pessoa.peso.paraPeso()}"),
+      trailing: Text("Altura: ${pessoa.altura.paraAltura()}"),
     );
   }
 }
