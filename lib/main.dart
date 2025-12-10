@@ -1,6 +1,4 @@
-import 'package:desenvolvimento_flutter_iniciante/models/pessoa.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
-import 'package:desenvolvimento_flutter_iniciante/widgets/pessoa_listtitle.dart';
 // import 'package:desenvolvimento_flutter_iniciante/widgets/stateless_widget.dart';
 import 'package:flutter/material.dart';
 
