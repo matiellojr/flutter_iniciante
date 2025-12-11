@@ -1,3 +1,4 @@
+import 'package:desenvolvimento_flutter_iniciante/pages/home_page.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
 // import 'package:desenvolvimento_flutter_iniciante/widgets/stateless_widget.dart';
 import 'package:flutter/material.dart';
@@ -28,12 +29,7 @@ class MyApp extends StatelessWidget {
             ),
         ),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Meu primeiro App'),
-        ),
-        body: ListaPessoa()
-        ),
+      home: HomePage()
       );    
   }
 }
