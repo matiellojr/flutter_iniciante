@@ -17,6 +17,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: false,
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        textTheme: TextTheme(
+          titleSmall: TextStyle(color: Colors.red),
+          bodySmall: TextStyle(color: Colors.red),
+          bodyMedium: TextStyle(color: Colors.black),
+          titleMedium: TextStyle(
+            color: Colors.black, 
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            ),
+        ),
       ),
       home: Scaffold(
         appBar: AppBar(

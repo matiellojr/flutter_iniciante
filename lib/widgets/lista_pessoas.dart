@@ -1,6 +1,5 @@
 import 'package:desenvolvimento_flutter_iniciante/mock/gerar_pessoas.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/custom_person_tile.dart';
-import 'package:desenvolvimento_flutter_iniciante/widgets/pessoa_listtitle.dart';
 import 'package:flutter/material.dart';
 
 class ListaPessoa extends StatelessWidget {
