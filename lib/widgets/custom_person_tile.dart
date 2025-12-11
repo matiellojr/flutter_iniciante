@@ -16,6 +16,8 @@ class CustomPersonTile extends StatelessWidget {
     return CustomTile(
       onClick: () {
         showDialog(
+          // para não fechar ao clicar fora
+          barrierDismissible: false,
           context: context, 
           builder: (context) {
             return PessoaDialog(pessoa: pessoa);
