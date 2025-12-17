@@ -1,5 +1,4 @@
 import 'package:desenvolvimento_flutter_iniciante/extensions/extensions.dart';
-import 'package:desenvolvimento_flutter_iniciante/pages/nova_pagina.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +16,7 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.greenAccent,
           onPressed: () {
-            context.pushNamed(Routes.novaPagina);
+            context.pushNamed(Routes.criarPessoaPage);
 
             // Navigator.of(context).pushNamed(Routes.novaPagina);
 

@@ -1,8 +1,5 @@
-import 'package:desenvolvimento_flutter_iniciante/pages/home_page.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/router.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
-import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
-// import 'package:desenvolvimento_flutter_iniciante/widgets/stateless_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
