@@ -5,10 +5,12 @@ import 'package:desenvolvimento_flutter_iniciante/widgets/default_dialog_contain
 import 'package:flutter/material.dart';
 
 class PessoaDialog extends StatelessWidget {
+  final void Function(Pessoa pessoa) onDeletePessoa;
   final Pessoa pessoa;
   const PessoaDialog({
     super.key,
     required this.pessoa,
+    required this.onDeletePessoa,
   });
 
   @override
@@ -18,14 +20,16 @@ class PessoaDialog extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-            ElevatedButton(onPressed: () {
-              Navigator.of(context).pop();
-            }, 
+            ElevatedButton(
+              onPressed: () {
+                onDeletePessoa(pessoa);
+                Navigator.of(context).pop();
+              }, 
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green ,
+                backgroundColor: Colors.red,
               ),
               child: Text(
-                "Visualizar",
+                "Excluir",
                 style: TextStyle(color: Colors.black)
               )
             ),
@@ -33,7 +37,7 @@ class PessoaDialog extends StatelessWidget {
               Navigator.of(context).pop();
             }, 
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red,
+                backgroundColor: Colors.blue,
               ),
               child: Text(
                 "Fechar",

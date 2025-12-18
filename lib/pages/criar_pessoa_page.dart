@@ -1,3 +1,4 @@
+import 'package:desenvolvimento_flutter_iniciante/models/criar_pessoa_dto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -92,11 +93,13 @@ class _CriarPessoaPageState extends State<CriarPessoaPage> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (formKey.currentState?.validate() == true) {
-                          final criarPessoa = {
-                            'nome': nomeController.text,
-                            'altura': int.parse(alturaController.text),
-                            'peso': double.parse(pesoController.text.replaceAll(",", ".")),
-                          };
+                          final criarPessoa = CriarPessoaDto(
+                            nome: nomeController.text,
+                            altura: int.parse(alturaController.text),
+                            peso: double.parse(pesoController.text.replaceAll(",", ".")),
+                          );
+
+                          Navigator.of(context).pop(criarPessoa);
                         }
                       }, 
                       child: Text('Salvar')
