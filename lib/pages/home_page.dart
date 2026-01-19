@@ -1,7 +1,6 @@
 import 'package:desenvolvimento_flutter_iniciante/controllers/pessoa_controller.dart';
-import 'package:desenvolvimento_flutter_iniciante/models/criar_pessoa_dto.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
-import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
+import 'package:desenvolvimento_flutter_iniciante/widgets/pessoa/lista_pessoas.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
