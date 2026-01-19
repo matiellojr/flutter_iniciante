@@ -4,6 +4,7 @@ import 'package:desenvolvimento_flutter_iniciante/models/pessoa.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/lista_pessoas.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,7 +14,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final PessoaController pessoaController = PessoaController();
+  final pessoaController = GetIt.instance<PessoaController>();
+
+  @override
+  void initState() {
+    pessoaController.addListener(
+      () {
+        setState(() {
+          
+        });
+      }
+    );
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +37,6 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListaPessoas(
           pessoas: pessoaController.pessoas,
-          onDeletePessoa: (pessoa) {
-            // lógica de exclusão
-            print('Excluindo pessoa: ${pessoa} ');
-            pessoaController.removerPessoa(pessoa);
-            setState(() {});
-          },
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.greenAccent,

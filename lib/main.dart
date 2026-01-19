@@ -1,8 +1,10 @@
+import 'package:desenvolvimento_flutter_iniciante/dependencies/injector.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/router.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  injector();
   runApp(const MyApp());
 }
 

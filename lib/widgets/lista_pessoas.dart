@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 
 class ListaPessoas extends StatelessWidget {
   final List<Pessoa> pessoas;
-  final void Function(Pessoa pessoa) onDeletePessoa;
-  const ListaPessoas({super.key, required this.pessoas, required this.onDeletePessoa});
+  const ListaPessoas({super.key, required this.pessoas});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,6 @@ class ListaPessoas extends StatelessWidget {
       itemBuilder: (context, index) {
         return CustomPersonTile(
             pessoa: pessoas[index], 
-            onDeletePessoa: onDeletePessoa,
         );
       }
     );
