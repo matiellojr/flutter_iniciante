@@ -1,3 +1,4 @@
+import 'package:desenvolvimento_flutter_iniciante/controllers/pessoa_controller.dart';
 import 'package:desenvolvimento_flutter_iniciante/models/criar_pessoa_dto.dart';
 import 'package:desenvolvimento_flutter_iniciante/models/pessoa.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Pessoa> pessoas = [];
+  final PessoaController pessoaController = PessoaController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +22,11 @@ class _HomePageState extends State<HomePage> {
           title: Text('Meu primeiro App'),
         ),
         body: ListaPessoas(
-          pessoas: pessoas,
+          pessoas: pessoaController.pessoas,
           onDeletePessoa: (pessoa) {
             // lógica de exclusão
             print('Excluindo pessoa: ${pessoa} ');
-            pessoas.remove(pessoa);
+            pessoaController.removerPessoa(pessoa);
             setState(() {});
           },
         ),
@@ -36,15 +37,7 @@ class _HomePageState extends State<HomePage> {
             
             if (result != null) {
               final pessoaDto = result as CriarPessoaDto;
-
-              final pessoa = Pessoa(
-                id: pessoas.length + 1,
-                nome: pessoaDto.nome,
-                altura: pessoaDto.altura,
-                peso: pessoaDto.peso,
-              );
-
-              pessoas.add(pessoa);
+              pessoaController.adicionarPessoa(pessoaDto);
               setState(() {});
             }
 
