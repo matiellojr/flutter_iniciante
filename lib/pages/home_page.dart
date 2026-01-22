@@ -29,7 +29,6 @@ class _HomePageState extends State<HomePage> {
           },          
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.greenAccent,
           onPressed: () {
             Navigator.of(context).pushNamed(Routes.criarPessoaPage);
           },
