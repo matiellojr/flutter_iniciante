@@ -1,4 +1,5 @@
 import 'package:desenvolvimento_flutter_iniciante/controllers/pessoa_controller.dart';
+import 'package:desenvolvimento_flutter_iniciante/controllers/theme_controller.dart';
 import 'package:desenvolvimento_flutter_iniciante/routes/routes.dart';
 import 'package:desenvolvimento_flutter_iniciante/widgets/pessoa/lista_pessoas.dart';
 import 'package:flutter/material.dart';
@@ -13,28 +14,44 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final pessoaController = GetIt.instance<PessoaController>();
+  final ThemeController themeController = GetIt.instance<ThemeController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Meu primeiro App'),
+      // três barras do lado do "Meu primeiro App"
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Switch(
+              value: themeController.darkTheme, 
+              onChanged: (value) {
+                themeController.toggleTheme(value);
+              }
+            ),
+            Text("Tema Escuro"),
+          ],
         ),
-        body: ListenableBuilder(
-          listenable: pessoaController,
-          builder: (context, child) {
-            return ListaPessoas(
-              pessoas: pessoaController.pessoas,
-            );
-          },          
+      ),
+      appBar: AppBar(
+        title: Text('Meu primeiro App'),
+      ),
+      body: ListenableBuilder(
+        listenable: pessoaController,
+        builder: (context, child) {
+          return ListaPessoas(
+            pessoas: pessoaController.pessoas,
+          );
+        },          
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(Routes.criarPessoaPage);
+        },
+        child: Icon(Icons.navigate_next),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(Routes.criarPessoaPage);
-          },
-          child: Icon(Icons.navigate_next),
-          ),
-      );
+    );
   }
 
   @override
