@@ -1,0 +1,22 @@
+{
+  "pessoas": [
+    {
+      "id": "1",
+      "nome": "Maria",
+      "altura": 175,
+      "peso": 65
+    },
+    {
+      "id": "2",
+      "nome": "Ana Julia",
+      "altura": 185,
+      "peso": 75
+    },
+    {
+      "id": "b345",
+      "nome": "Junior Matiello",
+      "altura": 175,
+      "peso": 65
+    }
+  ]
+}
