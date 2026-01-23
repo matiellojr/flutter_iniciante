@@ -1,3 +1,6 @@
+import 'package:desenvolvimento_flutter_iniciante/models/criar_pessoa_dto.dart';
+import 'package:flutter/foundation.dart';
+
 class Pessoa {
   final String id;
   final String nome;
@@ -10,4 +13,18 @@ class Pessoa {
     required this.altura,
     required this.peso,
   });
+
+  factory Pessoa.fromjson(Map<String, dynamic> json) {
+    return Pessoa(
+      id: json["id"],
+      nome: json["nome"],
+      altura: json["altura"],
+      peso: json["peso"],
+    );
+  }
 }
+
+
+
+
+      

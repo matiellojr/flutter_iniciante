@@ -1,3 +1,4 @@
+import 'package:desenvolvimento_flutter_iniciante/models/criar_pessoa_dto.dart';
 import 'package:desenvolvimento_flutter_iniciante/models/pessoa.dart';
 import 'package:dio/dio.dart';
 
@@ -13,18 +14,23 @@ class ApiClient {
       final pessoasJson = data as List;
 
       return pessoasJson
-        .map(
-          (pessoaJson) => Pessoa(
-            id: pessoaJson["id"],
-            nome: pessoaJson["nome"],
-            altura: pessoaJson["altura"],
-            peso: pessoaJson["peso"],
-          ),
-      )
+        .map((pessoaJson) => Pessoa.fromjson(pessoaJson))
       .toList();
     }
     
     throw Exception("Status Code invalido - Erro ao buscar pessoas");
+  }
+
+  Future<Pessoa> post(CriarPessoaDto criarPessoa) async {
+    final request = await dio.post(
+      "http://localhost:3000/pessoas",
+      data: criarPessoa.toJson(),
+    );
+
+    if (request.statusCode == 201) {
+      return Pessoa.fromjson(request.data);
+    }
+    throw Exception("Status code inválido - Erro ao criar pessoa");
   }
 }
 

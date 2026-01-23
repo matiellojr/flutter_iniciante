@@ -23,6 +23,18 @@
       "nome": "Matheus de Lima",
       "altura": 172,
       "peso": 77
+    },
+    {
+      "id": "961c",
+      "nome": "Lucas Maensa",
+      "altura": 140,
+      "peso": 45
+    },
+    {
+      "id": "9539",
+      "nome": "Joao Lucas",
+      "altura": 150,
+      "peso": 75.54
     }
   ]
 }

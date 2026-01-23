@@ -19,6 +19,7 @@ class PessoaController extends ChangeNotifier{
     _loading = true;
     notifyListeners();
     try {
+      // await Future.delayed(const Duration(seconds: 2)); // Simula tempo de carregamento
       final pessoasApi = await apiClient.get();
       _pessoas = pessoasApi;
       mensagemNotifier.value = SuccessMessage(message: "Pessoas carregadas com sucesso.");
@@ -32,15 +33,9 @@ class PessoaController extends ChangeNotifier{
     }
   }
 
-  void adicionarPessoa(CriarPessoaDto criarPessoa) {
+  void adicionarPessoa(CriarPessoaDto criarPessoa) async{
     try {
-      final pessoa = Pessoa(
-        id: (_pessoas.length + 1).toString(), 
-        nome: criarPessoa.nome, 
-        altura: criarPessoa.altura,
-        peso: criarPessoa.peso
-      );
-
+      final pessoa = await apiClient.post(criarPessoa);
       pessoas.add(pessoa);
       mensagemNotifier.value = SuccessMessage(message: "Pessoa adicionada com sucesso.");
       notifyListeners();
