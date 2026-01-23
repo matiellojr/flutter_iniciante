@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    pessoaController.listarPessoas();
     themeController.mensagemNotifier.addListener(_onThemeMensagem);
     pessoaController.mensagemNotifier.addListener(_onPessoaMensagem);
     super.initState();

@@ -5,12 +5,12 @@ class ApiClient {
   final Dio dio = Dio();
 
   Future<List<Pessoa>> get() async{
-    final request = await dio.get("http://localhost:3000/pessoas");
+    final request = await dio.get("http://192.168.3.115:3000/pessoas");
 
     if (request.statusCode == 200) {
       final data = request.data;
 
-      final pessoasJson = data as List<Map<String, dynamic>>;
+      final pessoasJson = data as List;
 
       return pessoasJson
         .map(
@@ -29,12 +29,12 @@ class ApiClient {
 }
 
 
-Map<String, dynamic> pessoaJson = {
-  "id": "b345",
-  "nome": "Junior",
-  "altura": 165,
-  "peso": 64
-};
+// Map<String, dynamic> pessoaJson = {
+//   "id": "b345",
+//   "nome": "Junior",
+//   "altura": 165,
+//   "peso": 64
+// };
 
-final List<Map<String, dynamic>> lista = [pessoaJson];
+// final List<Map<String, dynamic>> lista = [pessoaJson];
 

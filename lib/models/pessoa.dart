@@ -1,5 +1,5 @@
 class Pessoa {
-  final int id;
+  final String id;
   final String nome;
   final int altura; // em centímetros 
   final double peso; // em quilogramas
