@@ -1,3 +1,4 @@
+import 'package:desenvolvimento_flutter_iniciante/controllers/pessoa_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,10 +15,15 @@ class ThemeController extends ChangeNotifier {
   ValueNotifier<String> mensagemNotifier = ValueNotifier("");
   
   void toggleTheme(bool value) async {
-    darkTheme = !darkTheme;
-    await sharedPreferences.setBool("theme", darkTheme);
-    mensagemNotifier.value = "Tema alterado para ${darkTheme ? 'escuro' : 'claro'}.";
-    notifyListeners(); // para não notificar a pessoa
+    try{
+      throw Exception("Ocorreu um erro ao alterar o tema.");
+      darkTheme = !darkTheme;
+      await sharedPreferences.setBool("theme", darkTheme);
+      mensagemNotifier.value = "Tema alterado para ${darkTheme ? 'escuro' : 'claro'}.";
+      notifyListeners(); // para não notificar a pessoa
+    } on Exception catch (error) {
+      mensagemNotifier.value = error.toString();
+    }
   }
 
   // metodo para salvar quando reiniciar o aplicativo,
