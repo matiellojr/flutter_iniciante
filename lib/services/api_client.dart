@@ -6,7 +6,7 @@ class ApiClient {
   final Dio dio = Dio();
 
   Future<List<Pessoa>> get() async{
-    final request = await dio.get("http://192.168.3.115:3000/pessoas");
+    final request = await dio.get("http://localhost:3000/pessoas");
 
     if (request.statusCode == 200) {
       final data = request.data;
@@ -31,6 +31,14 @@ class ApiClient {
       return Pessoa.fromjson(request.data);
     }
     throw Exception("Status code inválido - Erro ao criar pessoa");
+  }
+
+  Future<void> delete(Pessoa pessoa) async {
+    final request = await dio.delete("http://localhost:3000/pessoas/${pessoa.id}");
+
+    if (request.statusCode != 200) {
+      throw Exception("Status code inválido - Erro ao deletar pessoa");
+    }
   }
 }
 

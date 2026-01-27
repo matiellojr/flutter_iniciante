@@ -22,9 +22,9 @@ class PessoaDialog extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
             ElevatedButton(
-              onPressed: () {
-                pessoaController.removerPessoa(pessoa);
-                Navigator.of(context).pop();
+              onPressed: () async {
+                await pessoaController.removerPessoa(pessoa);
+                if (context.mounted) Navigator.of(context).pop();
               }, 
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,

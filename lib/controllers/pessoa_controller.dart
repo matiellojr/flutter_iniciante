@@ -44,9 +44,15 @@ class PessoaController extends ChangeNotifier{
     }
   }
 
-  void removerPessoa(Pessoa pessoa) {
-    _pessoas.remove(pessoa);
-    mensagemNotifier.value = SuccessMessage(message: "Pessoa removida com sucesso.");
-    notifyListeners();
+  Future<void> removerPessoa(Pessoa pessoa) async {
+    try {
+      await apiClient.delete(pessoa);
+      _pessoas.remove(pessoa);
+      mensagemNotifier.value = SuccessMessage(message: "Pessoa removida com sucesso.");
+    } on Exception catch (error) {
+      mensagemNotifier.value = ErrorMessage(message: "Ocorreu um erro ao remover pessoa.");
+    } finally {
+      notifyListeners();
+    }
   }
 }
