@@ -16,7 +16,6 @@ class PessoaListTitle extends StatefulWidget {
 class _PessoaListTitleState extends State<PessoaListTitle> {
   @override
   void initState() {
-    print("Iniciando pessoa: ${widget.pessoa.id}");
     super.initState();    
   }
 
@@ -35,7 +34,6 @@ class _PessoaListTitleState extends State<PessoaListTitle> {
 
   @override
   void dispose() {
-    print("Removendo pessoa: ${widget.pessoa.id}");
     super.dispose();    
   }
 }

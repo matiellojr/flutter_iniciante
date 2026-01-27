@@ -8,15 +8,21 @@
     },
     {
       "id": "23g4",
-      "nome": "Junior Silva Malone",
-      "altura": 174,
-      "peso": 80.5
+      "nome": "Junior Pereira",
+      "altura": 173,
+      "peso": 75.1
     },
     {
       "id": "5612",
       "nome": "Paulo Mendes",
       "altura": 180,
       "peso": 70.21
+    },
+    {
+      "id": "1494",
+      "nome": "Yuri Silva",
+      "altura": 171,
+      "peso": 79.21
     }
   ]
 }
