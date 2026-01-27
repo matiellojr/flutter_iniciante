@@ -33,7 +33,7 @@ class PessoaController extends ChangeNotifier{
     }
   }
 
-  void adicionarPessoa(CriarPessoaDto criarPessoa) async{
+  Future<void> adicionarPessoa(CriarPessoaDto criarPessoa) async{
     try {
       final pessoa = await apiClient.post(criarPessoa);
       pessoas.add(pessoa);
@@ -41,6 +41,22 @@ class PessoaController extends ChangeNotifier{
       notifyListeners();
     } on Exception catch (error) {
       mensagemNotifier.value = ErrorMessage(message: "Ocorreu um erro ao adicionar pessoa.");
+    }
+  }
+
+  Future<void> atualizarPessoa(Pessoa criarPessoa) async{
+    try {
+      final pessoa = await apiClient.put(criarPessoa);
+
+      final pessoaIndex = _pessoas.indexWhere((p) => p.id == pessoa.id);
+
+      _pessoas[pessoaIndex] = pessoa;
+
+      mensagemNotifier.value = SuccessMessage(message: "Pessoa atualizada com sucesso.");
+    } on Exception catch (error) {
+      mensagemNotifier.value = ErrorMessage(message: "Ocorreu um erro ao atualizar pessoa.");
+    } finally {
+      notifyListeners();
     }
   }
 

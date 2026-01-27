@@ -1,3 +1,22 @@
 {
-  "pessoas": []
+  "pessoas": [
+    {
+      "id": "f0f1",
+      "nome": "Maria Fatal",
+      "altura": 165,
+      "peso": 65.1
+    },
+    {
+      "id": "23g4",
+      "nome": "Junior Silva Malone",
+      "altura": 174,
+      "peso": 80.5
+    },
+    {
+      "id": "5612",
+      "nome": "Paulo Mendes",
+      "altura": 180,
+      "peso": 70.21
+    }
+  ]
 }
