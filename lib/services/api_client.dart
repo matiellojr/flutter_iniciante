@@ -40,6 +40,18 @@ class ApiClient {
       throw Exception("Status code inválido - Erro ao deletar pessoa");
     }
   }
+  
+  Future<Pessoa> put(Pessoa pessoa) async {
+    final request = await dio.put(
+      "http://localhost:3000/pessoas/${pessoa.id}",
+      data: pessoa.toJson(),
+    );
+
+    if (request.statusCode == 200) {
+      return Pessoa.fromjson(request.data);
+    }
+    throw Exception("Status code inválido - Erro ao atualizar pessoa");    
+  }
 }
 
 
